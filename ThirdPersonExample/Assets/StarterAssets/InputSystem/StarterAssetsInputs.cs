@@ -11,6 +11,7 @@ namespace StarterAssets
 		public Vector2 move;
 		public Vector2 look;
 		public bool jump;
+		public bool shoot;
 		public bool sprint;
 
 		[Header("Movement Settings")]
@@ -39,6 +40,11 @@ namespace StarterAssets
 			JumpInput(value.isPressed);
 		}
 
+		public void OnShoot(InputValue value)
+		{
+			ShootInput(value.isPressed);
+		}
+
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
@@ -61,7 +67,13 @@ namespace StarterAssets
 			jump = newJumpState;
 		}
 
-		public void SprintInput(bool newSprintState)
+        public void ShootInput(bool newShootState)
+        {
+            shoot = newShootState;
+			Debug.Log("Press shoot");
+        }
+
+        public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
 		}
